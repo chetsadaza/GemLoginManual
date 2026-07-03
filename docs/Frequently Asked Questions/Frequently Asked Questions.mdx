@@ -4,6 +4,8 @@ title: Frequently Asked Questions (FAQs)
 description: Common questions about Covertia anti-detect browser — profiles, proxies, workflows, tasks, and troubleshooting.
 ---
 
+import Details from '@theme/Details';
+
 # Frequently Asked Questions (FAQs)
 
 Common questions about **Covertia Anti-detect Browser & Automation Platform**
@@ -12,11 +14,13 @@ Common questions about **Covertia Anti-detect Browser & Automation Platform**
 
 ## Browser Profile
 
-### What is a Browser Profile?
+<Details summary="What is a Browser Profile?">
 
 A Browser Profile is an isolated browser environment (Sandbox). Each profile has its own Fingerprint, Cookies, Local Storage, and Network Settings — making each profile appear to come from a different device, preventing cross-profile contamination.
 
-### How do I create a Profile?
+</Details>
+
+<Details summary="How do I create a Profile?">
 
 4 creation methods:
 
@@ -27,7 +31,9 @@ A Browser Profile is an isolated browser environment (Sandbox). Each profile has
 | **Import File** | Import from Excel (.xlsx / .csv) |
 | **Import from External** | Scan and import from existing Chrome profiles |
 
-### Why does the Fingerprint need to be consistent?
+</Details>
+
+<Details summary="Why does the Fingerprint need to be consistent?">
 
 All values must align:
 
@@ -45,7 +51,9 @@ Example of **high detection risk**:
 ❌ Vietnam IP + USA Timezone + Russian Language + Windows + MacOS User-Agent
 ```
 
-### How do I configure a Proxy?
+</Details>
+
+<Details summary="How do I configure a Proxy?">
 
 SOCKS5 (recommended):
 
@@ -61,11 +69,15 @@ http://ip:port:username:password
 
 Use the **Check** button to test the proxy before launching — the system verifies the IP, status, and network connection.
 
-### Which Browser is recommended?
+</Details>
+
+<Details summary="Which Browser is recommended?">
 
 **Chrome** — supports most websites, natural fingerprint, stable, good extension support.
 
-### Which Browser Version should I use?
+</Details>
+
+<Details summary="Which Browser Version should I use?">
 
 ```
 ✅ 138, 139, 140, 141
@@ -73,11 +85,13 @@ Use the **Check** button to test the proxy before launching — the system verif
 ❌ Beta / Canary builds
 ```
 
+</Details>
+
 ---
 
 ## Fingerprint & Security
 
-### What can Covertia Spoof?
+<Details summary="What can Covertia Spoof?">
 
 | Category | Options |
 |------|----------|
@@ -94,20 +108,26 @@ Use the **Check** button to test the proxy before launching — the system verif
 | **Do Not Track** | `default` / `open` / `close` |
 | **Port Scan Protection** | `accept` / `decline` |
 
-### Should I use `noise` or `real`?
+</Details>
+
+<Details summary="Should I use noise or real?">
 
 - **noise**: Adds noise to mask the real fingerprint — **recommended** for privacy-sensitive tasks.
 - **real**: Uses the device's real fingerprint — higher detection risk when running multiple profiles.
+
+</Details>
 
 ---
 
 ## Workflows
 
-### What is a Workflow?
+<Details summary="What is a Workflow?">
 
 A Workflow is an automation script that runs in the browser — used for repetitive actions like auto login, account warming, form submissions, and can execute across multiple profiles.
 
-### How do I create a Workflow?
+</Details>
+
+<Details summary="How do I create a Workflow?">
 
 1. Go to **Workflows**
 2. Click **New workflow**
@@ -115,21 +135,27 @@ A Workflow is an automation script that runs in the browser — used for repetit
 4. Enter a **Description** (max 300 characters)
 5. Click **Create**
 
-### Can I import Workflows?
+</Details>
+
+<Details summary="Can I import Workflows?">
 
 Yes — click **Import** and upload a saved workflow file.
 
-### How do I manage multiple Workflows?
+</Details>
+
+<Details summary="How do I manage multiple Workflows?">
 
 - **Search**: Filter by name
 - **Delete**: Delete individually or bulk delete using the checkbox
 - **Version**: View the active version tag in the Name column
 
+</Details>
+
 ---
 
 ## Tasks (Scheduling)
 
-### What's the difference between a Task and a Workflow?
+<Details summary="What's the difference between a Task and a Workflow?">
 
 | | Workflow | Task |
 |------|----------|------|
@@ -139,7 +165,9 @@ Yes — click **Import** and upload a saved workflow file.
 | Concurrent Threads | ❌ | ✅ |
 | Window Layout | ❌ | ✅ |
 
-### What scheduling options are available?
+</Details>
+
+<Details summary="What scheduling options are available?">
 
 | Frequency | Behavior |
 |-----------|----------|
@@ -148,21 +176,27 @@ Yes — click **Import** and upload a saved workflow file.
 | **Interval** | Repeats at fixed time gaps |
 | **Every day** | Runs daily at the specified time |
 
-### How many Concurrent Threads should I set?
+</Details>
+
+<Details summary="How many Concurrent Threads should I set?">
 
 - Default is **10** — runs 10 profiles simultaneously
 - Increase if your machine has enough CPU/RAM to speed things up
 - Decrease for lower-spec machines or if your proxy has rate limits
 
-### What is Open time between profiles?
+</Details>
+
+<Details summary="What is Open time between profiles?">
 
 The delay (ms) before launching the next Browser Profile — default is 300ms. Helps reduce system load and prevent proxy rate limiting.
+
+</Details>
 
 ---
 
 ## Database
 
-### What's the difference between Tables, Variables, and Credentials?
+<Details summary="What's the difference between Tables, Variables, and Credentials?">
 
 | Feature | Used for | Examples |
 |---------|----------|---------|
@@ -170,7 +204,9 @@ The delay (ms) before launching the next Browser Profile — default is 300ms. H
 | **Variables** | Key-Value pairs | Runtime parameters, flags, dynamic values |
 | **Credentials** | Sensitive data (encrypted) | Passwords, API tokens |
 
-### What Data Types do Tables support?
+</Details>
+
+<Details summary="What Data Types do Tables support?">
 
 - `Any` — Accepts any format
 - `Text` — Character strings
@@ -180,11 +216,13 @@ The delay (ms) before launching the next Browser Profile — default is 300ms. H
 
 > ⚠️ Deleting a Table, Variable, or Credential is permanent — check dependencies first.
 
+</Details>
+
 ---
 
 ## Developer API
 
-### Is there an API?
+<Details summary="Is there an API?">
 
 Yes — the Covertia Core API runs at `http://localhost:1010`:
 
@@ -196,11 +234,13 @@ Yes — the Covertia Core API runs at `http://localhost:1010`:
 | `/api/browser_versions` | List available Browser Versions |
 | `/api/locations` | List supported Geographic Locations |
 
+</Details>
+
 ---
 
 ## Troubleshooting
 
-### Profiles look suspicious / keep getting banned?
+<Details summary="Profiles look suspicious / keep getting banned?">
 
 Run the **Fingerprint Consistency Checklist**:
 
@@ -211,25 +251,33 @@ Run the **Fingerprint Consistency Checklist**:
 5. Does the Geolocation match the Proxy location?
 6. Is the Browser Version realistic?
 
-### Proxy not working?
+</Details>
+
+<Details summary="Proxy not working?">
 
 1. Click **Check** to test the proxy in Profile → Network
 2. Verify the format: `host:port:username:password`
 3. Confirm the Proxy Type matches your provider (SOCKS5 / HTTP)
 
-### Task not running on schedule?
+</Details>
+
+<Details summary="Task not running on schedule?">
 
 - **Starting Time** must be at least **2 minutes** ahead of the current time
 - The Toggle **ON/OFF** on the Tasks page must be enabled (green)
 - At least 1 profile must be selected in the **Profiles Tab**
 - Check **Schedule History** to review past executions
 
-### Import File failing validation?
+</Details>
+
+<Details summary="Import File failing validation?">
 
 - Download the **Template File** before filling in data
 - The **Name** column must not be empty
 - Proxy must use the format `ip:port:username:password`
 - Check Valid/Invalid counts in **Profile Stats** before clicking Import
+
+</Details>
 
 ---
 

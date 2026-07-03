@@ -145,3 +145,97 @@ body.homepage-layout .footer__copyright {
 [data-theme='dark'] .theme-doc-sidebar-item-category > .menu__list > .menu__list-item:last-child::after {
   border-left-color: var(--ifm-background-color, #111111);
 }
+
+/* ===== FAQ Accordion (Details) ===== */
+
+/* Override Infima alert--info to look like a premium borderless accordion */
+details.alert--info {
+  --ifm-alert-background-color: transparent !important;
+  --docusaurus-details-decoration-color: rgba(0, 0, 0, 0.08) !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+[data-theme='dark'] details.alert--info {
+  --docusaurus-details-decoration-color: rgba(255, 255, 255, 0.08) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Open state background remains clean */
+details.alert--info[data-collapsed="false"] {
+  background-color: transparent !important;
+}
+
+/* Summary (question) styling */
+details.alert--info summary {
+  cursor: pointer;
+  padding: 20px 0 !important;
+  background: transparent !important;
+  color: var(--ifm-color-emphasis-900, #1a1a1a) !important;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  list-style: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  transition: color 0.2s ease !important;
+  border: none !important;
+}
+
+details.alert--info summary:hover {
+  color: var(--ifm-color-primary, #3b82f6) !important;
+}
+
+/* Remove default browser details arrow */
+details.alert--info summary::-webkit-details-marker {
+  display: none !important;
+}
+details.alert--info summary::marker {
+  display: none !important;
+}
+
+/* Hide default Docusaurus theme-common details summary arrow */
+details.alert--info summary::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Elegant CSS rotating chevron */
+details.alert--info summary::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+details.alert--info[open] summary::after,
+details.alert--info[data-collapsed="false"] summary::after {
+  transform: rotate(-135deg);
+}
+
+/* Open state summary */
+details.alert--info[data-collapsed="false"] summary {
+  border-bottom: none !important;
+}
+
+/* Content padding and styling */
+details.alert--info > div:last-child {
+  padding: 0 0 20px 0 !important;
+  color: var(--ifm-color-emphasis-700, #4a5568) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.65 !important;
+}
+
+[data-theme='dark'] details.alert--info > div:last-child {
+  color: #c9d1d9 !important;
+}
