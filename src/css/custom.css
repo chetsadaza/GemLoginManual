@@ -166,6 +166,15 @@ details.alert--info {
   border-bottom-color: rgba(255, 255, 255, 0.08) !important;
 }
 
+/* Force inner collapsible separator line to be grey */
+details.alert--info [class*="collapsibleContent"] {
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme='dark'] details.alert--info [class*="collapsibleContent"] {
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
 /* Open state background remains clean */
 details.alert--info[data-collapsed="false"] {
   background-color: transparent !important;
@@ -176,7 +185,7 @@ details.alert--info summary {
   cursor: pointer;
   padding: 20px 0 !important;
   background: transparent !important;
-  color: var(--ifm-color-emphasis-900, #1a1a1a) !important;
+  color: var(--ifm-heading-color, var(--ifm-font-color-base)) !important;
   font-size: 1.05rem !important;
   font-weight: 600 !important;
   list-style: none !important;
@@ -231,11 +240,29 @@ details.alert--info[data-collapsed="false"] summary {
 /* Content padding and styling */
 details.alert--info > div:last-child {
   padding: 0 0 20px 0 !important;
-  color: var(--ifm-color-emphasis-700, #4a5568) !important;
+  color: var(--ifm-font-color-base) !important;
   font-size: 0.95rem !important;
   line-height: 1.65 !important;
 }
 
 [data-theme='dark'] details.alert--info > div:last-child {
-  color: #c9d1d9 !important;
+  color: var(--ifm-font-color-base) !important;
+}
+
+/* Style links inside collapsible content to have a subtle grey underline */
+details.alert--info a {
+  text-decoration-color: rgba(0, 0, 0, 0.25) !important;
+  transition: text-decoration-color 0.2s ease !important;
+}
+
+details.alert--info a:hover {
+  text-decoration-color: var(--ifm-link-hover-color, #3b82f6) !important;
+}
+
+[data-theme='dark'] details.alert--info a {
+  text-decoration-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+[data-theme='dark'] details.alert--info a:hover {
+  text-decoration-color: #ffffff !important;
 }
