@@ -1,5 +1,54 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
+title: Browser Settings
+description: Configure default browser engine cores, WebRTC handling, canvas noise, and Chrome startup flags.
 ---
 
-# Browser
+# Browser Settings
+
+The **Browser Settings** panel allows you to configure workspace-wide default parameters for browser profiles. These settings control default Chrome versions, fingerprinting defaults, WebRTC handling rules, and global startup arguments for launched browser instances.
+
+---
+
+## Engine & Fingerprint Defaults
+
+Set the baseline configuration for newly created browser profiles:
+
+| Setting | Description | Options & Details |
+| :--- | :--- | :--- |
+| **Default Chrome Version** | Select the primary Chromium engine release to use when generating new profiles. | Dropdown list (e.g. `Chrome 141`, `Chrome 140`) |
+| **User-Agent Template** | Base User-Agent string template used when spawning new profiles. | Default desktop/mobile templates |
+| **Language Preference** | Default `Accept-Language` header and `navigator.language` setting. | e.g. `en-US,en;q=0.9` |
+
+---
+
+## WebRTC & Network Security
+
+Configure how WebRTC IP handling behaves across browser instances to prevent IP leaks:
+
+| Option | Description | Recommended State |
+| :--- | :--- | :--- |
+| **WebRTC Handling** | Controls WebRTC IP exposure policy. | `Disabled` or `Altered` (to route WebRTC through proxy IP) |
+| **Canvas Noise** | Injects noise into HTML5 Canvas fingerprinting requests. | Enabled |
+| **Audio Context Noise** | Injects subtle noise into Web Audio API fingerprints. | Enabled |
+| **Hardware Acceleration** | Enable or disable GPU hardware acceleration for browser windows. | Toggle (Disable on virtual servers / VPS) |
+
+---
+
+## Launch Flags & Command-Line Arguments
+
+Specify custom flags passed directly to Chromium when launching profile windows:
+
+### Flags Input Field
+
+* **Custom Flags**: Enter space-separated Chrome flags (e.g., `--disable-notifications --mute-audio --disable-gpu`).
+* **Preset Buttons**: Quick toggles to append common flags:
+  * `--mute-audio`: Mutes all audio output from launched profiles.
+  * `--disable-notifications`: Disables Web Push Notification popups automatically.
+  * `--incognito`: Launches browser windows in private mode.
+
+---
+
+## Save Configuration
+
+Click the **Save** button at the bottom of the panel to persist your default browser preferences. New profiles created hereafter will automatically inherit these settings.

@@ -1,7 +1,7 @@
 ---
 title: Zoom Page
 sidebar_label: Zoom Page
-sidebar_position: 4
+sidebar_position: 10
 ---
 
 import WorkflowPreview from '@site/src/components/WorkflowPreview';
@@ -9,11 +9,11 @@ import zoomPageData from '@site/docs/Script/Zoom Page.json';
 
 # Zoom Page Workflow
 
-ตัวอย่าง Workflow สาธิตการทำงานของบล็อก **Zoom Page** ซึ่งเป็นคำสั่งสำหรับการปรับปรุงอัตราการซูมย่อขยายขนาดการแสดงผลของหน้าเว็บเพจ (Page Zoom Level Control) เพื่ออำนวยความสะดวกในการจับภาพหน้าจอ (Take Screenshot) หรือปรับให้องค์ประกอบของเว็บสอดคล้องกับพฤติกรรมการตรวจจับรูปภาพอัตโนมัติ
+Example workflow demonstrating the **Zoom Page** block, used to adjust the viewport zoom level of a target web page. Useful for high-resolution screenshots or matching element scales for computer vision.
 
 ## Interactive Workflow Preview
 
-คลิกที่บล็อกเพื่อระบุสัดส่วนขนาดซูม (Zoom size) ลากย้ายหน้าจอ หรือซูมแผนภาพเข้า/ออก
+Click on blocks to specify zoom size. Drag background to pan, scroll wheel to zoom preview in/out.
 
 <WorkflowPreview data={zoomPageData} height={580} />
 
@@ -21,33 +21,31 @@ import zoomPageData from '@site/docs/Script/Zoom Page.json';
 
 | Block | Type | Description |
 |-------|------|-------------|
-| **Start (Trigger)** | `BlockBasic` | จุดเริ่มต้นทำงานเวิร์กโฟลว์ |
-| **Open URL** | `BlockBasicWithFallback` | เปิดหน้าเบราว์เซอร์เป้าหมาย |
-| **Zoom Page** | `BlockBasicWithFallback` | บล็อกซูมย่อหรือขยายระดับหน้าเว็บเพจตามเปอร์เซ็นต์ที่ระบุ |
+| **Start (Trigger)** | `BlockBasic` | Workflow entry point. |
+| **Open URL** | `BlockBasicWithFallback` | Opens target webpage. |
+| **Zoom Page** | `BlockBasicWithFallback` | Adjusts page zoom level by specified percentage. |
 
-## การตั้งค่าบล็อก Zoom Page
+## Zoom Page Block Settings
 
-บล็อก **Zoom Page** ช่วยให้เวิร์กโฟลว์ปรับขนาดมุมมอง (Zoom Level) ของหน้าเพจปัจจุบัน
+### Main Parameters
 
-### ค่าพารามิเตอร์หลัก
-
-| พารามิเตอร์ | คำอธิบาย | ตัวเลือก / รายละเอียดเพิ่มเติม |
+| Parameter | Description | Options & Details |
 | :--- | :--- | :--- |
-| **Description** | คำอธิบายรายละเอียดสั้น ๆ สำหรับบล็อกนี้ | แสดงผลเป็นฟิลด์หัวเรื่องไร้กรอบด้านบนสุด |
-| **Zoom size** | สัดส่วนเปอร์เซ็นต์ที่ต้องการใช้ในการซูมหน้าเว็บเพจ | ค่าเริ่มต้นคือ `100` (ซูมปกติ 100%) รองรับการใช้ตัวแปร `{x}` |
+| **Description** | Short block note or label | Frameless title header |
+| **Zoom size** | Zoom level percentage | Default is `100` (100% normal scale), supports `{x}` variables |
 
-### ค่าในส่วน Settings
+### Settings Parameters
 
-*   **Timeout (millisecond)**: กำหนดเวลาสูงสุดในการทำงานของบล็อกนี้
-*   **Delay time (millisecond)**: เวลาหน่วงก่อนเริ่มประมวลผลคำสั่งในบล็อก
+* **Timeout (millisecond)**: Maximum execution duration for this block.
+* **Delay time (millisecond)**: Delay before executing zoom action.
 
-### ค่าในส่วน On error
+### On Error Options
 
-*   **Enable Switch**: เปิด/ปิดการทำงานข้ามข้อผิดพลาดเมื่อเกิดปัญหาระหว่างคำสั่งซูมหน้าเพจ
+* **Enable Switch**: Toggle to bypass errors if zooming fails.
 
 ---
 
-### กรณีการใช้งาน (Use Cases)
+### Use Cases
 
-*   **High-Resolution Screenshotting**: ปรับอัตราการซูมหน้าเว็บลง (เช่น ซูม `75%` หรือ `50%`) เพื่อขยายพื้นที่การแสดงผลหน้าเพจให้กว้างขวางขึ้นก่อนส่งคำสั่งเก็บภาพหน้าจออัตโนมัติ ช่วยให้เก็บรายละเอียดของหน้าเว็บที่มีเนื้อหายาว ๆ หรือกว้างได้ครบถ้วน
-*   **Element Match Alignment**: ในการใช้เครื่องมือค้นหาและวิเคราะห์รูปภาพบนหน้าจอ (Image Search) การปรับซูมให้ได้สัดส่วนตรงกับชุดภาพต้นแบบจะช่วยเพิ่มอัตราความแม่นยำในการค้นหาและประมวลผลให้สูงยิ่งขึ้น
+* **High-Resolution Screenshotting**: Scale down page zoom (e.g. `75%` or `50%`) to capture wider viewport areas in single screenshot actions.
+* **Element Match Alignment**: Align zoom levels when performing Image Search computer vision matching against static template samples.

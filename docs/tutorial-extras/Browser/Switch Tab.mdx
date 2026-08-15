@@ -9,11 +9,11 @@ import switchTabData from '@site/docs/Script/Switch Tab.json';
 
 # Switch Tab Workflow
 
-ตัวอย่าง Workflow สาธิตการทำงานของบล็อก **Switch Tab** ซึ่งเป็นคำสั่งสำหรับค้นหาและสลับไปยังแท็บเบราว์เซอร์เป้าหมายที่ต้องการ ช่วยให้เวิร์กโฟลว์สามารถทำงานข้ามแท็บหลายแท็บได้อย่างราบรื่น ไม่ว่าจะเป็นการค้นหาตาม URL Pattern, ชื่อแท็บ, ตำแหน่งลำดับ, หรือเลื่อนไปแท็บถัดไป/ก่อนหน้า
+Example workflow demonstrating the **Switch Tab** block, used to locate and switch active focus to a target browser tab by URL pattern, tab title, tab index, or next/previous navigation.
 
 ## Interactive Workflow Preview
 
-คลิกที่บล็อกเพื่อปรับตั้งค่าการค้นหาแท็บ ลากย้ายมุมมอง และ Scroll เพื่อซูมเข้า/ออก
+Click on blocks to edit tab selector criteria. Drag background to pan, scroll wheel to zoom in/out.
 
 <WorkflowPreview data={switchTabData} height={580} />
 
@@ -21,32 +21,27 @@ import switchTabData from '@site/docs/Script/Switch Tab.json';
 
 | Block | Type | Description |
 |-------|------|-------------|
-| **Start (Trigger)** | `BlockBasic` | จุดเริ่มต้นทำงานเวิร์กโฟลว์ |
-| **Open URL** | `BlockBasicWithFallback` | เปิดหน้าเบราว์เซอร์เป้าหมาย |
-| **Switch Tab** | `BlockBasicWithFallback` | ค้นหาและสลับไปยังแท็บเบราว์เซอร์ที่ต้องการ |
+| **Start (Trigger)** | `BlockBasic` | Workflow entry point. |
+| **Open URL** | `BlockBasicWithFallback` | Opens target webpage. |
+| **Switch Tab** | `BlockBasicWithFallback` | Switches active focus to target tab matching designated rules. |
 
-## การตั้งค่าบล็อก Switch Tab
+## Switch Tab Block Settings
 
-### ค่าพารามิเตอร์หลัก
+### Main Parameters
 
-| พารามิเตอร์ | คำอธิบาย | ตัวเลือก / รายละเอียดเพิ่มเติม |
+| Parameter | Description | Options & Details |
 | :--- | :--- | :--- |
-| **Description** | คำอธิบายรายละเอียดสั้น ๆ สำหรับบล็อกนี้ | ฟิลด์หัวเรื่องไร้กรอบด้านบนสุด |
-| **Find tab by** | วิธีการค้นหาแท็บเป้าหมาย | • `Match patterns` – ค้นหาตาม URL pattern<br/>• `Tab title` – ค้นหาตามชื่อแท็บ<br/>• `Next tab` – สลับไปแท็บถัดไป<br/>• `Previous tab` – สลับไปแท็บก่อนหน้า<br/>• `Tab index` – ระบุตำแหน่งลำดับแท็บโดยตรง |
-| **Match Patterns** | URL Pattern สำหรับจับคู่ (Glob pattern) | ปรากฏเมื่อเลือก `Match patterns` เช่น `https://example.com/*` รองรับตัวแปร `{x}` |
-| **Tab title** | ชื่อแท็บที่ต้องการค้นหา | ปรากฏเมื่อเลือก `Tab title` รองรับตัวแปร `{x}` |
-| **Tab index** | ลำดับตำแหน่งของแท็บ (เริ่มจาก 0) | ปรากฏเมื่อเลือก `Tab index` |
-| **Create if there's no match** | สร้างแท็บใหม่หากค้นหาไม่พบ | Checkbox ปรากฏเมื่อเลือก `Match patterns` หรือ `Tab title` |
-| **Set as active tab** | ตั้งแท็บเป้าหมายเป็นแท็บที่กำลังใช้งาน (Focus) | Checkbox สีน้ำเงิน เปิดเป็นค่าเริ่มต้น |
+| **Select tab by** | Rule for targeting tab | `URL` (Match URL string)<br/>`Title` (Match tab title)<br/>`Index` (0-based index number)<br/>`Next` / `Previous` |
+| **URL / Title Value** | Search pattern string | e.g. `facebook.com` or `Google Search`, supports `{x}` variables |
 
-### ค่าในส่วน Settings
+### Settings Parameters
 
-*   **Timeout (millisecond)**: กำหนดเวลาสูงสุดในการค้นหาแท็บเป้าหมาย
-*   **Delay time (millisecond)**: เวลาหน่วงก่อนเริ่มประมวลผลคำสั่ง
+* **Timeout (millisecond)**: Maximum search wait time for target tab to exist.
+* **Delay time (millisecond)**: Delay before executing tab switch action.
 
 ---
 
-### กรณีการใช้งาน (Use Cases)
+### Use Cases
 
-*   **Multi-Tab Data Collection**: เปิดหลายแท็บพร้อมกัน (เช่น ดึงข้อมูลจากหลายหน้าเว็บ) แล้วใช้ Switch Tab ค้นหาตาม URL Pattern เพื่อสลับไปยังแท็บที่ต้องการประมวลผลข้อมูลต่อ
-*   **Tab Navigation Loop**: ใช้โหมด `Next tab` หรือ `Previous tab` ร่วมกับ Loop เพื่อวนทำงานข้ามแท็บทีละตัวอัตโนมัติ เช่น เก็บข้อมูลจากทุกแท็บที่เปิดอยู่
+* **Multi-Tab Orchestration**: Switch focus to popup tabs launched by OAuth logins or payment gateways.
+* **Batch Scraper Navigation**: Cycle through opened tabs sequentially using `Next` or `Index` rules.

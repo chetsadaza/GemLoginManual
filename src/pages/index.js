@@ -25,7 +25,7 @@ function HomepageHeader() {
         <div className={styles.heroButtonWrapper}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/General Information">
+            to="/docs/category/general-information">
             Get Started with GemLogin
           </Link>
         </div>

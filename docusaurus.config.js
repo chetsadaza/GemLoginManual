@@ -110,7 +110,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/General Information',
+                to: '/docs/category/general-information',
               },
             ],
           },

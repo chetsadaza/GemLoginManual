@@ -1,0 +1,54 @@
+---
+sidebar_position: 3
+title: Browser Settings
+description: ตั้งค่าเวอร์ชันเบราว์เซอร์เริ่มต้น ระบบป้องกัน WebRTC และ Chrome Flags สำหรับการเปิดใช้งานโปรไฟล์
+---
+
+# Browser Settings (ตั้งค่าเบราว์เซอร์)
+
+แผง **Browser Settings** ใช้สำหรับกำหนดค่าเริ่มต้นของเบราว์เซอร์ในระดับโปรเจกต์ ซึ่งจะถูกนำไปใช้เป็นค่ามาตรฐานเมื่อสร้างโปรไฟล์ใหม่ ควบคุมทั้งเวอร์ชัน Chrome, การป้องกันรั่วไหลของ WebRTC, การใส่ Noise ใน Fingerprint และการตั้งค่า Chrome Flags
+
+---
+
+## ค่าเริ่มต้นของ Engine & Fingerprint
+
+กำหนดการตั้งค่าหลักสำหรับโปรไฟล์เบราว์เซอร์ใหม่:
+
+| การตั้งค่า | คำอธิบาย | ตัวเลือก & รายละเอียด |
+| :--- | :--- | :--- |
+| **Default Chrome Version** | เลือกเวอร์ชันของ Chromium Engine เริ่มต้นเมื่อสร้างโปรไฟล์ใหม่ | รายการเลือก (เช่น `Chrome 141`, `Chrome 140`) |
+| **User-Agent Template** | รูปแบบข้อความ User-Agent มาตรฐานที่ใช้สร้างโปรไฟล์ | เทมเพลต Desktop / Mobile |
+| **Language Preference** | ค่าภาษาหลักของเบราว์เซอร์ (`Accept-Language` และ `navigator.language`) | เช่น `en-US,en;q=0.9` |
+
+---
+
+## ความปลอดภัย WebRTC & เครือข่าย
+
+กำหนดนโยบายจัดการ WebRTC เพื่อป้องกันการรั่วไหลของ IP จริง:
+
+| ตัวเลือก | คำอธิบาย | สถานะที่แนะนำ |
+| :--- | :--- | :--- |
+| **WebRTC Handling** | ควบคุมการส่งผ่านข้อมูล IP ของ WebRTC | `Disabled` หรือ `Altered` (เพื่อให้ WebRTC วิ่งผ่าน Proxy IP) |
+| **Canvas Noise** | แทรก Noise สุ่มในค่า Fingerprint ของ HTML5 Canvas | เปิดใช้งาน (Enabled) |
+| **Audio Context Noise** | แทรก Noise สุ่มในค่า Fingerprint ของ Web Audio API | เปิดใช้งาน (Enabled) |
+| **Hardware Acceleration** | เปิด/ปิด การเร่งความเร็วด้วยการ์ดจอ (GPU Acceleration) | สวิตช์เปิด/ปิด (แนะนำปิดเมื่อรันบน VPS/Server) |
+
+---
+
+## การตั้งค่า Launch Flags & Command-Line Arguments
+
+กำหนดค่า Chrome Flags พิเศษที่จะส่งต่อให้เบราว์เซอร์ขณะเริ่มทำงาน:
+
+### ช่องกรอก Flags
+
+* **Custom Flags**: กรอกคำสั่งแยกด้วยเว้นวรรค (เช่น `--disable-notifications --mute-audio --disable-gpu`)
+* **ปุ่มคีย์ลัดสำเร็จรูป**:
+  * `--mute-audio`: ปิดเสียงจากหน้าเบราว์เซอร์ทุกแท็บโดยอัตโนมัติ
+  * `--disable-notifications`: ปิดป็อปอัปคำขอการแจ้งเตือนจากหน้าเว็บ
+  * `--incognito`: เปิดเบราว์เซอร์ในโหมดไร้ตัวตน (Incognito)
+
+---
+
+## บันทึกการตั้งค่า
+
+คลิกปุ่ม **Save** ที่ด้านล่างของแผงเพื่อบันทึกการตั้งค่า โปรไฟล์ใหม่ที่ถูกสร้างขึ้นหลังจากนี้จะดึงค่าเหล่านี้ไปใช้งานโดยอัตโนมัติ

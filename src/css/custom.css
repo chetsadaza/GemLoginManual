@@ -45,9 +45,18 @@
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
 }
 
-/* Custom Navbar Logo Size */
+/* Custom Navbar Logo Alignment & Balance */
 .navbar__logo {
-  height: 54px;
+  height: 32px;
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
 /* Homepage Immersive Transparent Navbar & Footer */
