@@ -18,7 +18,7 @@ function HomepageHeader() {
       <div className={clsx('container', styles.heroContainer)}>
         <div className={styles.heroTextWrapper}>
           <Heading as="h1" className="hero__title">
-            Covertia Core
+            GemLogin Core
           </Heading>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
         </div>
@@ -26,7 +26,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/General Information">
-            Get Started with Covertia
+            Get Started with GemLogin
           </Link>
         </div>
       </div>

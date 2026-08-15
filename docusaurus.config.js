@@ -10,7 +10,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Covertia Core',
+  title: 'GemLogin Core',
   tagline: 'Anti-detect Browser & Automation Platform',
   favicon: 'img/favicon.png',
 
@@ -83,9 +83,9 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'Covertia',
+        title: 'GemLogin',
         logo: {
-          alt: 'Covertia Logo',
+          alt: 'GemLogin Logo',
           src: 'img/logo.png',
         },
         items: [
@@ -141,7 +141,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Covertia, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} GemLogin, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

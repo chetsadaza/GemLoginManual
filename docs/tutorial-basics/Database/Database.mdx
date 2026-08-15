@@ -6,13 +6,13 @@ description: Manage structured tables, global variables, and secure credentials.
 
 # Database Management
 
-The **Database** module in Covertia provides a centralized storage engine to manage all dynamic data required by your browser automation workflows. It is divided into three functional areas:
+The **Database** module in GemLogin provides a centralized storage engine to manage all dynamic data required by your browser automation workflows. It is divided into three functional areas:
 
 | Area | Purpose | Best Used For |
 | :--- | :--- | :--- |
-| **Tables** | Structured data collections organized in rows and columns. | Account lists, scraper outputs, target profiles mappings. |
-| **Variables** | Global or script-specific key-value pairs. | Custom execution parameters, constant flags, dynamic values. |
-| **Credentials** | Secured key storage with encrypted or masked values. | Passwords, API tokens, sensitive configurations. |
+| **Tables** | Structured datasets with custom column schemas. | Account lists, scrapers output, bulk form input. |
+| **Variables** | Key-value pairs for global variables. | Environment configs, state trackers, global flags. |
+| **Credentials** | Vault for sensitive tokens, passwords, and keys. | Login credentials, API tokens, secret keys. |
 
 ---
 
@@ -25,7 +25,7 @@ Tables allow you to store structured datasets. You can query, insert, and delete
 * **Search**: Filter your tables instantly by typing in the search box.
 * **+ Add table**: Opens the schema designer dialog.
 * **Table Columns**:
-  * `NAME`: The identifier of the table (e.g., `Covertia`).
+  * `NAME`: The identifier of the table (e.g., `GemLogin`).
   * `CREATED AT` / `MODIFIED AT`: Creation and update timestamps.
   * `ROWS`: A clickable badge displaying the count of records. Click it to view and edit individual rows.
   * `Action (Trash Icon)`: Permanently deletes the table and all its contents.
@@ -58,7 +58,7 @@ Variables store dynamic settings or runtime values that you want to reference ac
 
 | Field | Description |
 | :--- | :--- |
-| **Name** | Key identifier (e.g., `Covertia`). |
+| **Name** | Key identifier (e.g., `GemLogin`). |
 | **Value** | Multi-line text area to store the variable's value. |
 
 ---
@@ -80,7 +80,7 @@ Credentials provide secure storage for sensitive data, ensuring passwords and ke
 
 | Field | Description |
 | :--- | :--- |
-| **Name** | Key name or label (e.g., `Covertia`). |
+| **Name** | Key name or label (e.g., `GemLogin`). |
 | **Value** | Secure field to input passwords, private keys, or API tokens. |
 
 ---

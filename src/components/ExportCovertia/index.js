@@ -30,7 +30,7 @@ export default function ExportCovertia({ data, filename = 'workflow' }) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${filename}.covertia`;
+    a.download = `${filename}.gemlogin`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -61,7 +61,7 @@ export default function ExportCovertia({ data, filename = 'workflow' }) {
       <div className={styles.header}>
         <div className={styles.headerLeft}>
           <span className={styles.fileIcon}>📄</span>
-          <span className={styles.fileName}>{filename}.covertia</span>
+          <span className={styles.fileName}>{filename}.gemlogin</span>
         </div>
         <div className={styles.headerRight}>
           <button
@@ -74,9 +74,9 @@ export default function ExportCovertia({ data, filename = 'workflow' }) {
           <button
             className={`${styles.btn} ${styles.exportBtn}`}
             onClick={handleExport}
-            title="Export as .covertia file"
+            title="Export as .gemlogin file"
           >
-            {exporting ? '✓ Exported!' : 'Export .covertia'}
+            {exporting ? '✓ Exported!' : 'Export .gemlogin'}
           </button>
         </div>
       </div>

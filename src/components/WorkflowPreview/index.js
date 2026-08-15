@@ -4690,14 +4690,14 @@ export default function WorkflowPreview({ data, height = 580 }) {
               const url = URL.createObjectURL(blob);
               const a = document.createElement('a');
               a.href = url;
-              a.download = `Start.covertia`;
+              a.download = `Start.gemlogin`;
               document.body.appendChild(a);
               a.click();
               document.body.removeChild(a);
               URL.revokeObjectURL(url);
             }}
             className={styles.toolbarExportBtn}
-            title="Export .covertia"
+            title="Export .gemlogin"
           >
             Export
           </button>

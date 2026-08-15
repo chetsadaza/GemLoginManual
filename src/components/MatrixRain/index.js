@@ -142,7 +142,7 @@ export default function MatrixRain() {
             const charRow = (row + Math.floor(colData.y * 0.4)) % chars.length;
             const char = chars[Math.abs(charRow)][col];
 
-            // If inside the Covertia shield mask lines, render with high-contrast transparent colors
+            // If inside the GemLogin shield mask lines, render with high-contrast transparent colors
             if (maskVal > 0.15) {
               const b = maskVal * (inTrail ? (1 + 0.4 * trailFade) : 0.8);
               

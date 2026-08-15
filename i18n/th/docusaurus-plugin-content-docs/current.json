@@ -39,8 +39,8 @@
     "message": "Workflows",
     "description": "The label for category 'Workflows' in sidebar 'tutorialSidebar'"
   },
-  "sidebar.tutorialSidebar.category.Automation Blocks in Covertia": {
-    "message": "Automation Blocks in Covertia",
-    "description": "The label for category 'Automation Blocks in Covertia' in sidebar 'tutorialSidebar'"
+  "sidebar.tutorialSidebar.category.Automation Blocks in GemLogin": {
+    "message": "Automation Blocks in GemLogin",
+    "description": "The label for category 'Automation Blocks in GemLogin' in sidebar 'tutorialSidebar'"
   }
 }
