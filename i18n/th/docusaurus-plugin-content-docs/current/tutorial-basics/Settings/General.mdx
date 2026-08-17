@@ -1,55 +1,36 @@
 ---
 sidebar_position: 1
 title: General Settings
-description: Configure theme preferences, browser engines, and profile storage locations.
+description: กำหนดค่าธีมหน้าตา ภาษาของโปรแกรม และตำแหน่งจัดเก็บไฟล์โปรไฟล์
 ---
 
-# General Settings
+# การตั้งค่าทั่วไป (General Settings)
 
-The **General Settings** panel allows you to configure system-wide interface preferences, download and maintain the browser engine cores, and manage the local directory path where your profile files are stored.
-
----
-
-## Interface Preferences
-
-Configure visual and display properties of the application:
-
-| Setting | Description | Options |
-| :--- | :--- | :--- |
-| **Theme** | Set the appearance mode of the application interface. | `Light`, `Dark` |
-| **Language** | Select the default display language for all menus and options. | Dropdown list (e.g. `English`, `Thai`) |
-| **Compact Navigation** | Toggle compact menu mode to group related items together in collapsible sections. | Switch toggle (On/Off) |
+แผง **General Settings** ใช้สำหรับตั้งค่าการแสดงผลของโปรแกรม จัดการดาวน์โหลดคอร์เบราว์เซอร์ และเลือกตำแหน่งโฟลเดอร์สำหรับจัดเก็บโปรไฟล์ในคอมพิวเตอร์
 
 ---
 
-## Browser Engine Management
+## 1. Interface Preferences (ธีมและภาษา)
 
-Download, reinstall, or clean up the underlying browser engines used to run automated profiles.
+* **Theme**: เลือกธีมการแสดงผล (`Light` / `Dark`)
+* **Language**: เลือกภาษาการใช้งานเมนูกรอบโปรแกรม (`English`, `Thai`)
+
+---
+
+## 2. Browser Engine Management (จัดการคอร์เบราว์เซอร์)
+
+ดาวน์โหลด ติดตั้งใหม่ หรือล้างไฟล์ขยะของเบราว์เซอร์เอนจินหลัก
 
 > [!WARNING]
-> **Active Profiles Notice**
-> Always close and turn off all running browser profiles before installing, reinstalling, or updating browser configurations.
+> ปิดเบราว์เซอร์โปรไฟล์ที่กำลังทำงานทั้งหมดก่อนกดติดตั้งหรืออัปเดตเวอร์ชันเอนจิน
 
-### Configuration Fields
-
-| Setting / Action | Description |
-| :--- | :--- |
-| **Browser** | Select the target web browser core engine to manage (e.g. `Chrome Browser`). |
-| **Version** | Select the specific browser version release (e.g. `141`). |
-| **Reinstall** | Redownload and install the selected browser version from scratch. |
-| **Update Config** | Apply updated configuration parameters to the selected browser build. |
-| **Clean profiles folder** | Clear temporary cache files, crash dumps, and logs within the browser engine directories to free up disk space. |
+* **Browser & Version**: เลือกประเภทและเวอร์ชันของเบราว์เซอร์ที่ต้องการจัดการ (เช่น `Chrome 141`)
+* **Clean profiles folder**: ลบแคชชั่วคราวและไฟล์ค้างในเอนจินเบราว์เซอร์เพื่อคืนพื้นที่ดิสก์
 
 ---
 
-## Storage Location
+## 3. Storage Location (ตำแหน่งจัดเก็บไฟล์)
 
-Manage where all browser profiles (including cookies, cache, and session data) are stored on your local drive.
-
-### Directory Configuration
-
-*   **Storage Location Input**: Displays the absolute local path to your profiles folder (e.g. `D:\Apps\Profiles`). Click the folder icon button next to the input field to select a new folder on your computer.
-*   **Actions**:
-    *   **Use selected path**: Switch the application to load and save profiles directly from the new location without moving existing files.
-    *   **Copy profiles to selected path**: Copy all profiles currently saved in the old folder over to the newly selected directory path.
-*   **Save**: Confirm path modifications and apply changes.
+กำหนดพาธโฟลเดอร์ที่ใช้เก็บบันทึกโปรไฟล์ทั้งหมดในเครื่อง (เช่น `D:\Apps\Profiles`)
+* **Use selected path**: เปลี่ยนไปใช้พาธโฟลเดอร์ใหม่
+* **Copy profiles to selected path**: คัดลอกโปรไฟล์เดิมทั้งหมดไปยังโฟลเดอร์ใหม่

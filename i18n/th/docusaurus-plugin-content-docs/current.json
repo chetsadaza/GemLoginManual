@@ -8,20 +8,8 @@
     "description": "The label for category 'Program Features Overview' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Program Features Overview.link.generated-index.description": {
-    "message": "5 minutes to learn the most important Docusaurus concepts.",
+    "message": "Overview of key program features and functions in GemLogin",
     "description": "The generated-index page description for category 'Program Features Overview' in sidebar 'tutorialSidebar'"
-  },
-  "sidebar.tutorialSidebar.category.Database": {
-    "message": "Database",
-    "description": "The label for category 'Database' in sidebar 'tutorialSidebar'"
-  },
-  "sidebar.tutorialSidebar.category.Extension": {
-    "message": "Extension",
-    "description": "The label for category 'Extension' in sidebar 'tutorialSidebar'"
-  },
-  "sidebar.tutorialSidebar.category.Logs": {
-    "message": "Logs",
-    "description": "The label for category 'Logs' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Profile": {
     "message": "Profile",
@@ -31,16 +19,20 @@
     "message": "Settings",
     "description": "The label for category 'Settings' in sidebar 'tutorialSidebar'"
   },
-  "sidebar.tutorialSidebar.category.Tasks": {
-    "message": "Tasks",
-    "description": "The label for category 'Tasks' in sidebar 'tutorialSidebar'"
+  "sidebar.tutorialSidebar.category.General Information": {
+    "message": "General Information",
+    "description": "The label for category 'General Information' in sidebar 'tutorialSidebar'"
   },
-  "sidebar.tutorialSidebar.category.Workflows": {
-    "message": "Workflows",
-    "description": "The label for category 'Workflows' in sidebar 'tutorialSidebar'"
+  "sidebar.tutorialSidebar.category.General Information.link.generated-index.description": {
+    "message": "General information and workflow tutorials",
+    "description": "The generated-index page description for category 'General Information' in sidebar 'tutorialSidebar'"
   },
-  "sidebar.tutorialSidebar.category.Automation Blocks in GemLogin": {
-    "message": "Automation Blocks in GemLogin",
-    "description": "The label for category 'Automation Blocks in GemLogin' in sidebar 'tutorialSidebar'"
+  "sidebar.tutorialSidebar.category.Browser": {
+    "message": "Browser",
+    "description": "The label for category 'Browser' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.General": {
+    "message": "General",
+    "description": "The label for category 'General' in sidebar 'tutorialSidebar'"
   }
 }

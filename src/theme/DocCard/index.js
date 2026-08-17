@@ -10,12 +10,11 @@ import {
 import isInternalUrl from '@docusaurus/isInternalUrl';
 import Layout from '@theme/DocCard/Layout';
 import iconStyles from './Heading/Icon/styles.module.css';
+
 function getFallbackEmojiIcon(item) {
-  if (item.type === 'category') {
-    return '🗃';
-  }
-  return isInternalUrl(item.href) ? '📄️' : '🔗';
+  return null;
 }
+
 function getIconTitleProps(item) {
   const extracted = extractLeadingEmoji(item.label);
   let emoji = extracted.emoji ?? getFallbackEmojiIcon(item);
@@ -81,10 +80,10 @@ function getIconTitleProps(item) {
     title: extracted.rest.trim(),
   };
 }
+
 function CardCategory({item}) {
   const href = findFirstSidebarItemLink(item);
   const categoryItemsPlural = useDocCardDescriptionCategoryItemsPlural();
-  // Unexpected: categories that don't have a link have been filtered upfront
   if (!href) {
     return null;
   }
@@ -98,6 +97,7 @@ function CardCategory({item}) {
     />
   );
 }
+
 function CardLink({item}) {
   const doc = useDocById(item.docId ?? undefined);
   return (
@@ -110,6 +110,7 @@ function CardLink({item}) {
     />
   );
 }
+
 export default function DocCard({item}) {
   switch (item.type) {
     case 'link':

@@ -1,0 +1,183 @@
+---
+sidebar_position: 3
+title: Developer/API
+description: เอกสารคู่มือสำหรับนักพัฒนา REST API สำหรับจัดการโปรไฟล์ กลุ่มสคริปต์ และการควบคุมระบบอัตโนมัติใน GemLogin
+---
+
+# Core API Reference (คู่มือสำหรับนักพัฒนา)
+
+**GemLogin Core API** เป็นอินเทอร์เฟซควบคุมการทำงานผ่านโปรโตคอล HTTP REST API สำหรับนักพัฒนาที่ต้องการเขียนโปรแกรมเชื่อมต่อเพื่อสร้าง สั่งเปิด ปิด หรือปรับแต่ง Browser Profiles, จัดการกลุ่ม (Groups), และสั่งรันสคริปต์อัตโนมัติ (Automation Scripts) ผ่านเครื่องมือภายนอก (เช่น Python, Node.js, C#, PHP)
+
+---
+
+## Connection Settings (ข้อมูลการเชื่อมต่อ)
+
+ส่งคำขอ (HTTP Requests) ไปยัง Base URL ของบริการ GemLogin Local API Server:
+
+| เซิร์ฟเวอร์ | Base URL |
+| :--- | :--- |
+| **Local API Server** | `http://localhost:1010` |
+
+---
+
+## Versions API (จัดการเวอร์ชันเบราว์เซอร์)
+
+ชุดคำสั่งสำหรับตรวจสอบเวอร์ชันของ Browser Engine:
+
+| Method | Endpoint | คำอธิบาย |
+| :--- | :--- | :--- |
+| `GET` | `/api/browser_versions` | เรียกดูรายการเวอร์ชันเบราว์เซอร์ทั้งหมดที่มีในระบบ |
+
+---
+
+## Groups API (จัดการกลุ่มโปรไฟล์)
+
+ชุดคำสั่งสำหรับจัดการกลุ่ม (Groups) ของโปรไฟล์:
+
+| Method | Endpoint | คำอธิบาย |
+| :--- | :--- | :--- |
+| `GET` | `/api/groups` | เรียกดูรายการกลุ่มโปรไฟล์ทั้งหมดในระบบ |
+
+---
+
+## Locations API (จัดการข้อมูลพิกัดภูมิศาสตร์)
+
+ชุดคำสั่งสำหรับจัดการข้อมูลตำแหน่งและพิกัดภูมิศาสตร์:
+
+| Method | Endpoint | คำอธิบาย |
+| :--- | :--- | :--- |
+| `GET` | `/api/locations` | เรียกดูรายการข้อมูลพิกัดตำแหน่งทางภูมิศาสตร์ที่รองรับ |
+
+---
+
+## Profiles API (จัดการโปรไฟล์เบราว์เซอร์)
+
+ชุดคำสั่งสร้าง สั่งเปิด ปิด อัปเดต และลบโปรไฟล์เบราว์เซอร์:
+
+| Method | Endpoint | คำอธิบาย |
+| :--- | :--- | :--- |
+| `GET` | `/api/profiles` | เรียกดูรายการโปรไฟล์เบราว์เซอร์ทั้งหมด |
+| `GET` | `/api/profile/{id}` | ดึงข้อมูลการตั้งค่าอย่างละเอียดของโปรไฟล์ตาม ID |
+| `POST` | `/api/profiles/create` | สร้างโปรไฟล์เบราว์เซอร์ใหม่พร้อมกำหนด Fingerprints |
+| `POST` | `/api/profiles/update/{profile_id}` | อัปเดตข้อมูลการตั้งค่าของโปรไฟล์ที่มีอยู่แล้ว |
+| `GET` | `/api/profiles/start/{id}` | สั่งเปิดใช้งานหน้าต่างเบราว์เซอร์ตาม ID |
+| `GET` | `/api/profiles/close/{id}` | สั่งปิดหน้าต่างเบราว์เซอร์ตาม ID |
+| `POST` | `/api/profiles/check-status/{id}` | ตรวจสอบสถานะการทำงาน (กำลังรัน / ปิดอยู่) |
+| `GET` | `/api/profiles/changeFingerprint` | สุ่มเปลี่ยน Fingerprints แบบกลุ่มสำหรับโปรไฟล์ที่ระบุ |
+| `POST` | `/api/profiles/resource/{id}` | อัปเดตทรัพยากรบัญชีที่ผูกกับโปรไฟล์ |
+| `GET` | `/api/profiles/delete/{id}` | ลบโปรไฟล์ออกจากระบบอย่างถาวร |
+
+---
+
+## Scripts & Automation API (จัดการสคริปต์อัตโนมัติ)
+
+ชุดคำสั่งสำหรับควบคุมและสั่งรันสคริปต์ Workflow อัตโนมัติ:
+
+| Method | Endpoint | คำอธิบาย |
+| :--- | :--- | :--- |
+| `GET` | `/api/scripts` | เรียกดูรายการสคริปต์อัตโนมัติทั้งหมดที่มีในระบบ |
+| `POST` | `/api/scripts/execute/{id}` | สั่งรันสคริปต์อัตโนมัติกับโปรไฟล์เป้าหมายตาม ID สคริปต์ |
+| `POST` | `/api/scripts/check-status/{id}` | ตรวจสอบสถานะการรันสคริปต์ปัจจุบัน |
+| `POST` | `/api/scripts/kill-execute/{id}` | สั่งหยุดการทำงานของสคริปต์ทันที (Force Terminate) |
+
+---
+
+## Data Schemas (โครงสร้างข้อมูล)
+
+รายละเอียดโมเดลข้อมูลที่ส่งระหว่างการเรียกใช้งาน API (Payload & Response):
+
+### 1. BrowserVersion
+
+ข้อมูลเวอร์ชันของ Browser Engine:
+
+| ฟิลด์ | ชนิดข้อมูล | คำอธิบาย | ตัวอย่าง |
+| :--- | :--- | :--- | :--- |
+| `id` | `integer` | รหัสอ้างอิงประจำเวอร์ชัน | `1` |
+| `version` | `string` | เลขเวอร์ชันหลัก (Major version) | `"136"` |
+
+---
+
+### 2. OsVersion
+
+ข้อมูลระบบปฏิบัติการที่ต้องการจำลอง:
+
+| ฟิลด์ | ชนิดข้อมูล | คำอธิบาย | ค่าที่รองรับ / ตัวอย่าง |
+| :--- | :--- | :--- | :--- |
+| `osType` | `string` | ประเภทระบบปฏิบัติการ | `"Windows"`, `"macOS"`, `"Android"`, `"iOS"`, `"Linux"` |
+| `version` | `string` | สายเวอร์ชันระบบปฏิบัติการ | `"win10"`, `"win11"`, `"macos13"`, `"android13"`, `"ios15"`, `"all_linux"` |
+
+---
+
+### 3. Group
+
+ข้อมูลกลุ่มของโปรไฟล์เบราว์เซอร์:
+
+| ฟิลด์ | ชนิดข้อมูล | คำอธิบาย | ตัวอย่าง |
+| :--- | :--- | :--- | :--- |
+| `id` | `string` | รหัสอ้างอิงกลุ่ม | `"1"` |
+| `name` | `string` | ชื่อกลุ่ม | `"All"` |
+| `createdAt` | `string ($date-time)` | เวลาสร้างกลุ่ม | `"2023-09-01T12:00:00Z"` |
+| `updatedAt` | `string ($date-time)` | เวลาอัปเดตกลุ่มล่าสุด | `"2023-09-02T12:00:00Z"` |
+
+---
+
+### 4. Location
+
+ข้อมูลตำแหน่งทางภูมิศาสตร์และเครือข่าย:
+
+| ฟิลด์ | ชนิดข้อมูล | คำอธิบาย | ตัวอย่าง |
+| :--- | :--- | :--- | :--- |
+| `country` | `string` | ชื่อประเทศพิกัด IP | `"Vietnam"` |
+| `languages` | `string` | รหัสภาษา (คั่นด้วยเครื่องหมายจุลภาค) | `"vi,en"` |
+| `timezones` | `string` | เขตเวลามาตรฐาน IANA | `"Asia/Bangkok"` |
+| `latLng` | `array [string]` | ค่าละติจูด และ ลองจิจูด | `["16.16666666", "107.83333333"]` |
+
+---
+
+### 5. Profile
+
+ข้อมูลโครงสร้างหลักของโปรไฟล์เบราว์เซอร์:
+
+| ฟิลด์ | ชนิดข้อมูล | คำอธิบาย | ตัวอย่าง |
+| :--- | :--- | :--- | :--- |
+| `id` | `string` | รหัสอ้างอิงโปรไฟล์ | `"1"` |
+| `name` | `string` | ชื่อโปรไฟล์ | `"Test profile"` |
+| `raw_proxy` | `string` | การตั้งค่าพร็อกซี | `"host:port:user:pass"` |
+| `browser_type` | `string` | ประเภทของ Browser Kernel | `"Chrome"` |
+| `browser_version` | `string` | เวอร์ชันเต็มของเบราว์เซอร์ | `"136.0.0.0"` |
+| `group_id` | `string` | รหัสกลุ่มที่โปรไฟล์สังกัดอยู่ | `"1"` |
+| `profile_path` | `string` | เส้นทางโฟลเดอร์จัดเก็บข้อมูลบนดิสก์ | `"wBPmedDpCbL-04122023"` |
+| `note` | `string` | บันทึกเพิ่มเติมประจำโปรไฟล์ | `null` |
+| `created_at` | `string ($date-time)` | เวลาที่สร้างโปรไฟล์ | `"2024-09-04T19:33:30.120Z"` |
+
+---
+
+### 6. Fingerprints
+
+พารามิเตอร์ลายนิ้วมือฮาร์ดแวร์และซอฟต์แวร์จำลอง:
+
+| ฟิลด์ | ชนิดข้อมูล | คำอธิบาย | ตัวเลือก / ตัวอย่าง |
+| :--- | :--- | :--- | :--- |
+| `browser_kernel` | `string` | คอร์เบราว์เซอร์ที่ใช้รัน | `"ChromeBrowser [131]"` |
+| `config_user_agent` | `string` | ค่า User-Agent ของเบราว์เซอร์ | `"Mozilla/5.0 (Windows NT 10.0;...)"` |
+| `timezone` | `string` | โซนเวลาของอุปกรณ์จำลอง | `"Asia/Bangkok"` |
+| `web_rtc` | `string` | โหมดการทำงาน WebRTC | • `"replace"`: ปลอม IP WebRTC เป็น IP สุ่ม<br/>• `"real"`: ใช้ IP จริง<br/>• `"disabled"`: ปิดการทำงาน WebRTC |
+| `geolocation` | `object` | ข้อมูลพิกัดละติจูด ลองจิจูด ความแม่นยำ | • `longitude`: `number` (เช่น `105.69`) <br/>• `latitude`: `number` (เช่น `21.42`) <br/>• `accuracy`: `integer` (เช่น `100`) |
+| `language` | `array [string]` | รายการภาษาหลักของเบราว์เซอร์ | `["vi", "en"]` |
+| `screen_resolution` | `string` | โหมดความละเอียดหน้าจอ | • `"random"`: สุ่มความละเอียด<br/>• `"custom"`: กำหนดขนาดเอง |
+| `fonts` | `string` | การจำลองฟอนต์ระบบ | • `"default"`: ฟอนต์มาตรฐาน<br/>• `"custom"`: กำหนดเอง |
+| `canvas` | `string` | โหมดซ่อน Canvas Fingerprint | • `"real"`: ไม่ใส่ Noise<br/>• `"noise"`: แทรก Noise สุ่มป้องกันการติดตาม |
+| `webgl_image` | `string` | การซ่อนรูปภาพ WebGL | • `"real"`: ไม่ใส่ Noise<br/>• `"noise"`: แทรก Noise สุ่ม |
+| `webgl_metadata` | `string` | ข้อมูลการ์ดจอ WebGL GPU | • `"real"`: ข้อมูลการ์ดจอจริง<br/>• `"custom"`: ปลอมค่าการ์ดจอ (เช่น `ANGLE (NVIDIA...)`) |
+| `audio_context` | `string` | โหมดซ่อน Audio Fingerprint | • `"real"`: ไม่ใส่ Noise<br/>• `"noise"`: แทรก Noise สุ่ม |
+| `media_device` | `string` | ข้อมูลอุปกรณ์มัลติมีเดีย | • `"real"`: รายการอุปกรณ์จริง<br/>• `"noise"`: ซ่อนชื่ออุปกรณ์ |
+| `client_rects` | `string` | การซ่อนมิติ Client Rects | • `"real"`: ไม่ใส่ Noise<br/>• `"noise"`: ซ่อนขนาด |
+| `speech_voices` | `string` | การซ่อนข้อมูลระบบเสียงอ่าน | • `"real"`: เสียงอ่านจริง<br/>• `"noise"`: ซ่อนรายชื่อเสียงอ่าน |
+| `hardware_concurrency`| `integer` | จำนวนคอร์ประมวลผล CPU จำลอง | `2`, `4`, `8`, `10`, `12`, `16`, `20`, `24` |
+| `device_memory` | `integer` | ขนาดหน่วยความจำแรม RAM (GB) | `2`, `4`, `8`, `10`, `12`, `16`, `20`, `24` |
+| `device_name` | `string` | ชื่ออุปกรณ์เครื่องคอมพิวเตอร์ | • `"real"`: ชื่อจริง<br/>• `"custom"`: ปลอมชื่อ (เช่น `DESKTOP-HLUKZ`) |
+| `mac_address` | `string` | หมายเลขการ์ดแลน MAC Address | • `"real"`: MAC จริง<br/>• `"custom"`: ปลอม MAC (เช่น `54:52:00:17:6F:45`) |
+| `do_not_track` | `string` | สถานะ DNT Header | • `"default"`: ค่าเริ่มต้น<br/>• `"open"`: เปิดใช้งาน<br/>• `"close"`: ปิดใช้งาน |
+| `flash` | `string` | การเปิดใช้งาน Flash Player | • `"accept"`: เปิดใช้งาน<br/>• `"decline"`: ปิดใช้งาน |
+| `port_scan_protection`| `string` | ระบบป้องกันการสแกนพอร์ต | • `"accept"`: เปิดการป้องกัน<br/>• `"decline"`: ปิดการป้องกัน |
+| `hardware_acceleration`| `string`| การเร่งความเร็วด้วยการ์ดจอ (GPU) | • `"default"`: ค่าเริ่มต้น<br/>• `"accept"`: เปิดการเร่งความเร็ว<br/>• `"decline"`: ปิดการเร่งความเร็ว |

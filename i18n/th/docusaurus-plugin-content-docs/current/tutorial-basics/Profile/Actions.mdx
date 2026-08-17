@@ -1,177 +1,74 @@
 ---
 sidebar_position: 5
 title: Actions
-description: Browser Profile Actions Guide
+description: คู่มือฟังก์ชันจัดการ สำรองข้อมูล และซิงก์โปรไฟล์ในเมนู Actions
 ---
 
-# Profile Actions
+# เมนูและการจัดการ Actions (Profile Actions)
 
-Profile Actions provide advanced utility functions to manage, organize, backup, and sync your Browser Profiles. These options help you maintain data integrity and transfer profiles between different groups or systems.
-
----
-
-## Actions Menu
-
-Right-clicking a profile and navigating to **Actions** opens a submenu with the following functions:
-
-| Option | Description |
-| --- | --- |
-| Assign group | Transfer selected profiles to a different group or category |
-| Backup | Export a profile as a compressed ZIP file or import a backup ZIP |
-| Export cookies | Save profile cookies to a file in JSON or String format |
-| Recover | Restore profile data to a previous working state |
-| Synchronize cloud | Sync local browser profile changes with the cloud storage |
-| Swap Profile | Exchange profiles or re-order profiles in the list |
+เมนู **Profile Actions** รวบรวมคำสั่งย่อยสำหรับจัดการ จัดหมวดหมู่ สำรองข้อมูล และซิงก์ข้อมูล Browser Profile เพื่อให้การย้ายเครื่องหรือแชร์โปรไฟล์ในทีมเป็นไปอย่างปลอดภัยและราบรื่น
 
 ---
 
-## Assign Group
+## เมนูลัด Actions (Actions Menu)
 
-The **Assign group** dialog (Group transfer of records) allows you to move profiles between categories for better organization.
+เมื่อคลิกขวาที่โปรไฟล์และเลือกเมนู **Actions** จะปรากฏตัวเลือกการทำงานดังต่อไปนี้:
 
----
-
-### Configuration
-
-#### Profile group
-
-Select the destination group for the selected profiles.
-
-* **Selection Dropdown**: Choose from your existing groups list.
-* **Add Group Button (+)**: Click the **+** button next to the dropdown to create a new group name immediately without closing the dialog.
+| ตัวเลือก | คำอธิบาย |
+| :--- | :--- |
+| **Assign group** | ย้ายโปรไฟล์ที่เลือกไปยังกลุ่มหรือหมวดหมู่ใหม่ |
+| **Backup** | ส่งออกโปรไฟล์เป็นไฟล์บีบอัด ZIP หรือนำเข้าไฟล์สำรองข้อมูล |
+| **Export cookies** | ดึงคุกกี้ออกจากโปรไฟล์ บันทึกเป็นไฟล์ JSON หรือ String |
+| **Recover** | กู้คืนโปรไฟล์ย้อนกลับไปยังย้อนหลังหรือย้ายค่ายจากโปรแกรมอื่น |
+| **Synchronize cloud** | ซิงก์คุกกี้และประวัติเบราว์เซอร์ในเครื่องขึ้นไปยัง Cloud |
+| **Swap Profile** | สลับตำแหน่งหรือสลับโฟลเดอร์ข้อมูลระหว่างโปรไฟล์ |
 
 ---
 
-## Backup
+## 1. Assign Group (ย้ายกลุ่มโปรไฟล์)
 
-The **Backup** system provides import and export functionality to safeguard profile settings and data.
+ใช้สำหรับจัดระเบียบโปรไฟล์ โดยย้ายโปรไฟล์ที่เลือกไปยังกลุ่มที่ต้องการ
 
----
-
-### Export Backup
-
-Export your current profile state to a local zip archive.
-
-#### File Path
-
-The destination folder where the backup ZIP file will be saved. Click the folder icon 📁 to select a path.
-
-#### Clean export (skip cache, faster)
-
-If checked, the export will ignore browser temporary cache and log files.
-
-##### Recommended
-
-```diff id="abackup1"
-+ Always check 'Clean export' to drastically reduce backup file size and speed up processing.
-```
+* **Dropdown เลือกกลุ่ม**: เลือกกลุ่มที่มีอยู่เดิมในระบบ
+* **ปุ่มเพิ่มกลุ่ม (+)**: คลิกที่ปุ่ม **+** เพื่อสร้างกลุ่มใหม่ทันทีโดยไม่ต้องปิดหน้าต่าง
 
 ---
 
-### Import Backup
+## 2. Backup (สำรองและนำเข้าข้อมูล)
 
-Restore or load a previously exported profile ZIP archive.
+ระบบสำรองข้อมูลโปรไฟล์ช่วยป้องกันข้อมูลสูญหาย
 
-#### Select the ZIP file
+### ส่งออกสำรองข้อมูล (Export Backup)
+* **File Path**: เลือกโฟลเดอร์ปลายทางสำหรับบันทึกไฟล์ `.zip`
+* **Clean export (skip cache, faster)**: ติ๊กเลือกเพื่อข้ามไฟล์แคชชั่วคราว ช่วยลดขนาดไฟล์และทำให้ส่งออกได้เร็วขึ้นมาก
 
-Drag and drop your `.zip` backup file directly into the designated dashed box, or click the **Select the ZIP file** button to browse files on your computer.
+### นำเข้าสำรองข้อมูล (Import Backup)
+* **Select the ZIP file**: ลากไฟล์ `.zip` มาวางในกล่อง หรือคลิกปุ่มเพื่อเลือกไฟล์จากคอมพิวเตอร์
 
 ---
 
-## Export Cookies
+## 3. Export Cookies (ส่งออกคุกกี้)
 
-The **Export cookies** feature allows you to extract active website sessions from selected profiles.
+สกัดคุกกี้เซสชันที่เข้าพักไว้ออกจากโปรไฟล์
 
 > [!IMPORTANT]
-> This feature only works if the **Save cookie** setting is enabled in the profile's main configuration. If disabled, no cookies will be recorded or exported.
+> ฟังก์ชันนี้จะทำงานต่อเมื่อโปรไฟล์นั้นเปิดใช้งานตัวเลือก **Save cookie** ไว้เท่านั้น
+
+* **Cookie Scope**: เลือก **All** (ส่งออกทุกเว็บไซต์) หรือ **Domain** (ระบุเฉพาะโดเมน เช่น `facebook.com`)
+* **Format**: เลือกแบบ **JSON** (สำหรับบอตหรือ API) หรือ **String** (รูปแบบ Netscape สำหรับส่วนขยายเบราว์เซอร์)
 
 ---
 
-### Configuration
+## 4. Recover (กู้คืนและย้ายค่ายโปรไฟล์)
 
-#### Cookie Scope
+กู้คืนข้อมูลโปรไฟล์เดิม หรือย้ายข้อมูลจากโปรแกรม Anti-detect เบราว์เซอร์ค่ายอื่น (เช่น GPM, Genlogin)
 
-* **All**: Export all cookies across all domains stored in the browser profile.
-* **Domain**: Export only the cookies associated with a specific web domain. When selected, an input box will appear to specify the target domain (e.g., `facebook.com` or `tiktok.com`).
-
-#### Cookie Format
-
-* **Json**: Export cookies in JSON array format (recommended for most modern tools and bots).
-* **String**: Export cookies in Netscape string format (standard format used by browser extensions like EditThisCookie).
-
-#### File Path
-
-The local file path where the exported cookie text file will be saved. Click the folder icon 📁 to select a destination.
+* **Clean profiles before recovery**: เปิดสวิตช์นี้หากต้องการล้างข้อมูลเก่าก่อนกู้คืน ป้องกันปัญหาแคชตกค้าง
+* **Core Engines / Format**: เลือกประเภทไฟล์ที่ต้องการกู้คืน (GemLogin Core, GPM, Genlogin, Other)
 
 ---
 
-## Recover
+## 5. Synchronize Cloud & Swap Profile
 
-The **Recover** tool allows you to restore browser profile configurations, bookmarks, and cookies from local backups, or migrate profiles from other anti-detect browsers.
-
----
-
-### Configuration
-
-#### Enter file path profile
-
-The directory path where your backup files are stored. Click the folder icon 📁 to select the source directory.
-
-#### Concurrent Threads
-
-Define the maximum number of recovery tasks to run simultaneously. The default is set to `20`.
-* Use higher threads to speed up bulk recovery on powerful machines.
-* Use lower threads if you experience high CPU or disk usage.
-
-#### Clean profiles before recovery
-
-A toggle switch. When enabled, it will wipe existing local profile data directories before initiating the recovery process, ensuring a clean installation without leftover caching issues or conflicts.
-
-#### Core Engines / Migration Formats
-
-Select the source format of the profile backup you want to recover or migrate:
-
-* **GemLogin Core**: Restore profiles native to this system.
-* **GPM**: Migrate profile backups exported from GPM.
-* **Genlogin**: Migrate profile backups exported from Genlogin.
-* **Other**: General migration for other formats.
-
----
-
-## Synchronize cloud
-
-Manually trigger a sync operation to upload local profile states (cookies, local storage, extensions, bookmarks) to the cloud. This allows team members or multiple devices sharing the same account to run the profile with updated session data.
-
----
-
-## Swap Profile
-
-The **Swap Profile** feature is used to quickly exchange configurations, order, or data directories between profiles, allowing clean swaps without manually changing settings on each profile.
-
----
-
-### Configuration
-
-#### Profile Pairs
-
-Choose the two profiles you want to swap using the **Select first profile** and **Select second profile** dropdowns. Clicking the **X** button will remove a pair configuration.
-
-#### Add Another Pair (+)
-
-Click the **+ Add Another Pair** link to configure multiple profile swaps at the same time, allowing you to perform bulk swap operations in a single click.
-
----
-
-## Best Practices
-
-```diff id="abest1"
-+ Enable 'Clean export' when backing up to save disk space and upload bandwidth.
-+ Group profiles using 'Assign group' before starting automated campaigns to keep work organized.
-+ Verify 'Save cookie' is enabled in settings before trying to export cookies.
-```
-
-```diff id="abest2"
-- Do not modify files inside the Backup ZIP manually as this may cause corruption during import.
-- Keep cookie exports secure, as they contain active session logins that bypass 2FA.
-```
-
+* **Synchronize cloud**: สั่งอัปโหลดข้อมูลเซสชัน คุกกี้ และบุ๊กมาร์กล่าสุดขึ้น Cloud เพื่อให้ทีมงานรันต่อได้ทันที
+* **Swap Profile**: สลับการตั้งค่าหรือโฟลเดอร์ข้อมูลระหว่างคู่โปรไฟล์ที่เลือกอย่างรวดเร็ว

@@ -13,7 +13,7 @@
   },
   "link.item.label.Tutorial": {
     "message": "Tutorial",
-    "description": "The label of footer link with label=Tutorial linking to /docs/intro"
+    "description": "The label of footer link with label=Tutorial linking to /docs/category/general-information"
   },
   "link.item.label.Stack Overflow": {
     "message": "Stack Overflow",
@@ -31,12 +31,8 @@
     "message": "Blog",
     "description": "The label of footer link with label=Blog linking to /blog"
   },
-  "link.item.label.GitHub": {
-    "message": "GitHub",
-    "description": "The label of footer link with label=GitHub linking to https://github.com/facebook/docusaurus"
-  },
   "copyright": {
-    "message": "Copyright © 2026 My Project, Inc. Built with Docusaurus.",
+    "message": "Copyright © 2026 GemLogin, Inc. Built with Docusaurus.",
     "description": "The footer copyright"
   }
 }
