@@ -97,33 +97,45 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Documentation',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Getting Started',
                 to: '/docs/category/general-information',
+              },
+              {
+                label: 'API Reference',
+                to: '/docs/API',
+              },
+              {
+                label: 'FAQs',
+                to: '/docs/Frequently Asked Questions/',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'GemLogin Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Official Website',
+                href: 'https://gemlogin.io',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Manage License',
+                href: 'https://app.gemlogin.io',
               },
               {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
+                label: 'Facebook Page',
+                href: 'https://facebook.com/gemlogin',
+              },
+              {
+                label: 'Telegram Community',
+                href: 'https://t.me/gemlogin',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} GemLogin, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} GemLogin. All rights reserved.`,
       },
       prism: {
         theme: prismThemes.github,

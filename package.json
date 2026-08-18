@@ -1,6 +1,7 @@
 {
-  "name": "my-docs",
-  "version": "0.0.0",
+  "name": "gemlogin-manual",
+  "version": "1.0.0",
+  "description": "GemLogin Documentation & User Manual",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",

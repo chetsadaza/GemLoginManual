@@ -1,38 +1,42 @@
 {
-  "link.title.Docs": {
-    "message": "Docs",
-    "description": "The title of the footer links column with title=Docs in the footer"
+  "link.title.Documentation": {
+    "message": "คู่มือการใช้งาน",
+    "description": "The title of the footer links column with title=Documentation in the footer"
   },
-  "link.title.Community": {
-    "message": "Community",
-    "description": "The title of the footer links column with title=Community in the footer"
+  "link.title.GemLogin Community": {
+    "message": "ช่องทางติดต่อและคอมมูนิตี้",
+    "description": "The title of the footer links column with title=GemLogin Community in the footer"
   },
-  "link.title.More": {
-    "message": "More",
-    "description": "The title of the footer links column with title=More in the footer"
+  "link.item.label.Getting Started": {
+    "message": "เริ่มต้นใช้งาน",
+    "description": "The label of footer link with label=Getting Started"
   },
-  "link.item.label.Tutorial": {
-    "message": "Tutorial",
-    "description": "The label of footer link with label=Tutorial linking to /docs/category/general-information"
+  "link.item.label.API Reference": {
+    "message": "เอกสาร REST API",
+    "description": "The label of footer link with label=API Reference"
   },
-  "link.item.label.Stack Overflow": {
-    "message": "Stack Overflow",
-    "description": "The label of footer link with label=Stack Overflow linking to https://stackoverflow.com/questions/tagged/docusaurus"
+  "link.item.label.FAQs": {
+    "message": "คำถามที่พบบ่อย (FAQs)",
+    "description": "The label of footer link with label=FAQs"
   },
-  "link.item.label.Discord": {
-    "message": "Discord",
-    "description": "The label of footer link with label=Discord linking to https://discordapp.com/invite/docusaurus"
+  "link.item.label.Official Website": {
+    "message": "เว็บไซต์ทางการ (GemLogin.io)",
+    "description": "The label of footer link with label=Official Website"
   },
-  "link.item.label.X": {
-    "message": "X",
-    "description": "The label of footer link with label=X linking to https://x.com/docusaurus"
+  "link.item.label.Manage License": {
+    "message": "จัดการไลเซนส์ (Manage License)",
+    "description": "The label of footer link with label=Manage License"
   },
-  "link.item.label.Blog": {
-    "message": "Blog",
-    "description": "The label of footer link with label=Blog linking to /blog"
+  "link.item.label.Facebook Page": {
+    "message": "Facebook Fanpage",
+    "description": "The label of footer link with label=Facebook Page"
+  },
+  "link.item.label.Telegram Community": {
+    "message": "Telegram Group",
+    "description": "The label of footer link with label=Telegram Community"
   },
   "copyright": {
-    "message": "Copyright © 2026 GemLogin, Inc. Built with Docusaurus.",
+    "message": "Copyright © 2026 GemLogin. All rights reserved.",
     "description": "The footer copyright"
   }
 }
